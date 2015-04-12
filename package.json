@@ -1,0 +1,28 @@
+{
+  "name": "cookieless",
+  "version": "1.0.0",
+  "description": "A cookieless identifier for user tracking by exploting etags.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alex Correia",
+  "keywords": [
+    "cookieless",
+    "cookie",
+    "beacon",
+    "analytics",
+    "statistics",
+    "tracking",
+    "tracker",
+    "track",
+    "etag"
+  ],
+  "licenses": [
+    {
+      "type": "GNU GPL v3.0",
+      "url": "http://www.gnu.org/licenses/gpl-3.0.txt"
+    }
+  ]
+}
