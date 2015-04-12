@@ -40,7 +40,7 @@ $.ajax({
 ```
 
 ## API
-#### *(static)* startBeacon(port*=7123*, host=*'0.0.0.0'*, onVisitorCallback)
+#### *(static)* startBeacon(port=*7123*, host=*'0.0.0.0'*, onVisitorCallback)
 The easiest way of hit the ground running is by using the built-in lightweight beacon, which starts a listener and processes the tracking requests. If a **onVisitorCallback** function is given, it will be called everytime a visitor calls the endpoint.
 ```javascript
 var CookielessTracker = require('cookieless');
@@ -53,8 +53,7 @@ The endpoint will be available at http://127.0.0.1/i.js?callback=setVisitor and 
 ```javascript
 ; typeof setVisitor === 'function' && setVisitor({id: 31428830410917,session: 3,lastSeen: 1428830410917});
 ```
-
-####Contructor(request, update=true)
+#### Contructor(request, update=true)
 Initializes a new visitor (may be returning visitor) from a request. If it is a **new visitor** it will automatically generate a **new unique ETag**.
 
 If **_update_** is set to **_true_**, it will automatcally update the visitor's session if they were last seen **over** 30 minutes ago. _(Otherwise you'll have to manually call the **update** API)_.
@@ -67,7 +66,7 @@ http.createServer(function (req, res) {
   visitor.respond(res);
 });
 ```
-####respond([callback,] res)
+#### respond([callback,] res)
 Given a *response* object, it will build and send a JSONP response to the visitor with the callback function name (if given). It is a combination of **statusCode()**, **buildHeader()**, and **buildScript()**.
 _(**Important:** the callback function name should be set and never changed, otherwise the tracking will be reset)_
 ```javascript
@@ -77,15 +76,14 @@ http.createServer(function (req, res) {
   visitor.respond('setVisitor', res);
 });
 ```
-
-####buildScript([callback])
+#### buildScript([callback])
 Builds the JSONP script with the visitor's information, the **callback** argument is a **string** with name of the callback function for the JSONP response. _(If the request has a callback set in the query string, it will be the default value)_
 ```javascript
 console.log(visitor.buildScript('setVisitor'));
 //Outputs:
 //; typeof setVisitor === 'function' && setVisitor({id: 31428830410917,session: 3,lastSeen: 1428830410917});
 ```
-####buildHeader()
+#### buildHeader()
 Builds the header for the response including the identifier ETag.
 ```javascript
 //Output:
@@ -94,7 +92,7 @@ Builds the header for the response including the identifier ETag.
   'ETag': "31428830410917.1428830410917.3"
 }
 ```
-####statusCode()
+#### statusCode()
 It gives the most appropriate **status code** for a **tracking response**. The response only changes when the session number gets updated, in that case the stattus **will be 200**, any other case should return **304**.
 ```javascript
 var visitor = new CookielessTracker(req);
