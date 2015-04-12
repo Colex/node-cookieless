@@ -160,8 +160,4 @@ Tracker.startBeacon = function(port, host, onVisitorCallback) {
   return proxy.listen(port || 7123, host || '127.0.0.1');
 }
 
-Tracker.startBeacon(7123, '0.0.0.0', function(visitor) {
-  console.log(visitor);
-});
-
 module.exports = Tracker;

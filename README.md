@@ -13,6 +13,7 @@ npm install cookieless --save
 ```
 
 ## Example
+#### Server side
 The following example starts a tracking beacon at: http://127.0.0.1/i.js?callback=setVisitor
 ```javascript
 var CookielessTracker = require('cookieless');
@@ -23,6 +24,18 @@ Note: it's not mandatory to start a beacon, you may handle the requests
 */
 CookielessTracker.startBeacon(7123, '0.0.0.0', function(visitor) {
   redis.incr('visits.'+visitor.id);
+});
+```
+#### Client side *(browser)*
+```javascript
+$.ajax({
+    url: "http://127.0.0.1:7123/i.js",
+    jsonp: "callback",
+    dataType: "jsonp",
+    success: function( visitor ) {
+        //Do something
+        trackImpressionFor(visitor.id, visitor.session); //example
+    }
 });
 ```
 
