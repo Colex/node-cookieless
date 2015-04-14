@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/Colex/node-cookieless.svg?branch=master)](https://travis-ci.org/Colex/node-cookieless)
 # Cookieless.js
 #### Cookieless user tracking for node.js
 
