@@ -29,7 +29,6 @@ var request = {
   }
 }
 
-console.log((new Cookieless(request.simple)).generateEtag())
 
 describe('Cookieless', function() {
 
