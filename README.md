@@ -12,6 +12,11 @@ This package allows you to use the visitor's information both **server side** an
 npm install cookieless --save
 ```
 
+## Tests
+```bash
+npm test
+```
+
 ## Example
 #### Server side
 The following example starts a tracking beacon at: http://127.0.0.1/i.js?callback=setVisitor
